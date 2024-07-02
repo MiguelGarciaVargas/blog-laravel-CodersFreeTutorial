@@ -23,6 +23,7 @@ class StoreCurso extends FormRequest
     {
         return [
             'name' => 'required|min:3',
+            'slug' => 'required|unique:cursos',
             'description' => 'required',
             'categoria' => 'required'
         ];
@@ -31,7 +32,7 @@ class StoreCurso extends FormRequest
     public function messages(): array 
     {
         return [
-            'name.requiered' => 'La descripcion es obligatoria',
+            'name.required' => 'La descripcion es obligatoria',
         ];
     }
 

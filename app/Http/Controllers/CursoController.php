@@ -51,6 +51,7 @@ class CursoController extends Controller
     public function update(Request $request, Curso $curso){
         $request->validate([
             'name' => 'required|min:3',
+            'slug' => 'required|unique:cursos,slug,' . $curso->id ,
             'description' => 'required',
             'categoria' => 'required'
         ]);
@@ -64,7 +65,7 @@ class CursoController extends Controller
         $curso->update($request->all());
 
 
-        return redirect()->route('cursos.show', $curso->id);
+        return redirect()->route('cursos.show', $curso);
     }
 
     public function destroy(Curso $curso){

@@ -11,4 +11,9 @@ class Curso extends Model
 
     /* protected $fillable = ['name', 'description', 'categoria']; */
     protected $guarded = [];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
